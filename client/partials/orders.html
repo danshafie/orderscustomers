@@ -1,0 +1,47 @@
+<div class="container" ng-controller="mainController">
+<a href="#/customers">Customers</a>
+
+<h1>Add a new order!</h1>
+
+<form>
+	<label>Customer:</label>
+	<select class="form-control" ng-model="order.name">
+		<option value="Dan Shafie">Dan Shafie</option>
+		<option value="Tim Hicks">Tim Hicks</option>
+		<option value="Jennica Machado">Jennica Machado</option>
+		<option value="Makela Pickler">Makela Pickler</option>
+	</select>
+	<label>Order:</label>
+	<select class="form-control" ng-model="order.quantity">
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+	</select>
+	<select class="form-control" ng-model="order.product">
+		<option value="Nike Shoes">Nike Shoes</option>
+		<option value="Black Belt">Black Belt</option>
+		<option value="Candle">Candle</option>
+	</select><br>
+	<input type="submit" value="submit" class="btn btn-primary" ng-click="addOrder()">
+</form>
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Customer Name:</th>
+			<th>Product</th>
+			<th>Quantity</th>
+			<th>Date</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="order in orders">
+			<td>{{order.customerName}}</td>
+			<td>{{order.product}}</td>
+			<td>{{order.quantity}}</td>
+			<td>{{order.created | date: 'medium'}}</td>
+		</tr>
+	</tbody>
+</table>
+</div>
